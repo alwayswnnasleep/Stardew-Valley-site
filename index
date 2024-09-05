@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-      
-    </header>
     <nav>
-        <a href="#home" onclick="showSection('home')" class="button">
-        <a href="#characters" onclick="showSection('characters')">Персонажи</a>
-        <a href="#seasons" onclick="showSection('seasons')">Сезоны</a>
-        <a href="#history" onclick="showSection('history')">История</a>
+        <img src="chickenRun.gif" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
+        <a href="#home" onclick="showSection('home', this)">Главная</a>
+        <a href="#characters" onclick="showSection('characters', this)">Персонажи</a>
+        <a href="#seasons" onclick="showSection('seasons', this)">Сезоны</a>
+        <a href="#history" onclick="showSection('history', this)">История</a>
     </nav>
     <div id="home" class="content animation">
-        <h2>Добро пожаловать!</h2>
-        <p>Исследуйте мир Stardew Valley.</p>
+        <h1>Добро пожаловать!</h1>
+        <img src="junimoJump.gif" id="junimoJump" width="20%" height="20%">
+        <h2>Исследуйте мир Stardew Valley.</h2>
     </div>
     <div id="characters" class="content animation" style="display:none;">
         <h2>Персонажи</h2>
@@ -27,5 +26,12 @@
     <div id="seasons" class="content animation" style="display:none;">
         <h2>Сезоны</h2>
         <p>Узнайте о каждом сезоне в игре.</p>
+    </div>
+    <div id="history" class="content animation" style="display:none;">
+        <h2>История</h2>
+        <p>Узнайте о развитии Stardew Valley.</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
