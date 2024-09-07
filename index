@@ -1,48 +1,59 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stardew Valley Fan Site</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  
 </head>
 <body>
     <nav>
-        <img src="chickenRun.gif" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
-        <a href="#home" onclick="showSection('home', this)">
-            <img src="gameLogoButtonHome.png" alt="Главная" style="height: 50px;"/>
+        <a href="#home" onclick="showSection('home', this)" class="button home">
+            <img src="logo.png" alt="Главная" width="180%" height="180%" />
         </a>
         <a href="#characters" onclick="showSection('characters', this)">Персонажи</a>
         <a href="#seasons" onclick="showSection('seasons', this)">Сезоны</a>
         <a href="#history" onclick="showSection('history', this)">История</a>
+        <a href="#guide" onclick="showSection('guide', this)">Гайд</a>
+        <img src="chickenRun.gif" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
     </nav>
-    <div id="home" class="content animation">
+
+    <div id="home" class="content active">
         <h1>Добро пожаловать!</h1>
         <img src="junimoJump.gif" id="junimoJump" width="20%" height="20%">
-        <h2>Исследуйте мир Stardew Valley.</h2>
+        <h2>Погрузись в мир Stardew Valley</h2>
+       
     </div>
-    <div id="characters" class="content animation" style="display:none;">
+
+    <div id="characters" class="content">
         <h2>Персонажи</h2>
         <p>Познакомьтесь с жителями деревни.</p>
     </div>
-    <div id="seasons" class="content animation" style="display:none;">
+    
+    <div id="seasons" class="content">
         <h2>Сезоны</h2>
         <p>Узнайте о каждом сезоне в игре.</p>
     </div>
-    <div id="history" class="content animation" style="display:none;">
+    
+    <div id="history" class="content">
         <h2>История</h2>
         <p>Узнайте о развитии Stardew Valley.</p>
     </div>
-    <button class="mail-button" onclick="showConsultant()"></button>
     
+    <div id="guide" class="content">
+        <h2>Гайд</h2>
+        <p>Полезные советы.</p>
+    </div>
+
     <div class="container">
         <div class="consultant" id="consultant" style="display:none;">
             <img src="consultant.png" alt="Консультант" width="150" height="200">
+            <img src="textBlock.png" width="80" height="100">
         </div>
     </div>
-    <div class="text-block" id="textBlock" style="display:none; opacity: 0;">
-        <img src="textBlock.png" width = "80" height="100">
-    </div>
+
+    <button class="mail-button" onclick="showConsultant()"></button>
     <script src="script.js"></script>
 </body>
 </html>

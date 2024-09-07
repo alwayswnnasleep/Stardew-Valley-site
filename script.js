@@ -34,19 +34,22 @@ function showConsultant() {
     const textBlock = document.getElementById('textBlock');
 
     if (consultant.style.display === 'block') {
-        // Hide the consultant and text block
+        // Скрыть консультанта и текстовый блок
         consultant.style.display = 'none';
         textBlock.style.display = 'none';
     } else {
-        // Show the consultant and text block
+        // Показать консультанта и текстовый блок
         consultant.style.display = 'block';
         textBlock.style.display = 'block';
-        textBlock.style.opacity = '0'; // Start hidden
+        textBlock.style.opacity = '0'; // Начать скрытым
+        
+        // Использовать setTimeout для плавного появления
         setTimeout(() => {
-            textBlock.style.opacity = '1'; // Fade in
+            textBlock.style.opacity = '1'; // Появление
         }, 100);
     }
 }
+
 
 // Ensure the consultant starts hidden
 window.onload = () => {

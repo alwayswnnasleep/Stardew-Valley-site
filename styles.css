@@ -6,6 +6,15 @@ body {
     text-align: center;
     padding: 120px 0;
     margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px; /* Увеличен размер шрифта */
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px; /* Добавлен отступ сверху */
 }
 
 nav {
@@ -18,18 +27,58 @@ nav {
     left: 0;
     width: 100%;
     z-index: 1000;
+    font-family: 'Press Start 2P', cursive; /* Замените 'Arial' на нужный шрифт */
+    font-size: 22px; /* Установите размер шрифта по вашему выбору */
+    color: white; /* Цвет текста */
 }
 
+
 nav a {
-    padding: 14px 20px;
+    padding: 20px 30px;
     display: block;
     color: white;
     text-decoration: none;
+    background-color: transparent; /* Initial background color */
+    transition: transform 0.3s ease; /* Smooth background and scaling transitions */
+    margin: 0 30px; /* Add horizontal spacing between links */
+}
+
+nav a.home {
+    
+    margin-right: 200px; /* Increase spacing specifically for the Home link */
+}
+
+
+nav a:hover {
+    background-color: rgba(76, 175, 80, 0.7); /* Darker shade of green on hover */
+    transform: scale(1.1); /* Increase size on hover */
+}
+
+.button img {
+    height: 50px; /* Original image size */
+    transition: transform 0.2s; /* Smooth transition for the image */
+}
+
+.button:hover img {
+    transform: scale(1.1); /* Increase the image size on hover */
 }
 .content {
     padding: 20px;
     text-align: center;
+    display: none;
 }
+.active { 
+    display: block; 
+}
+
+.button {
+    display: inline-block;
+    padding: 0px; /* Добавьте отступы для увеличения кнопки */
+    background-color: transparent; /* Цвет фона, если нужно */
+    border: none; /* Уберите границу, если она есть */
+    cursor: pointer; /* Курсор в виде указателя */
+}
+
 
 .animation {
     animation: fadeIn 2s ease-in;
@@ -43,26 +92,17 @@ nav a {
     from { bottom: -100px; opacity: 0; }
     to { bottom: 0; opacity: 1; }
 }
-.button {
-    background-image: url('homeButton.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block;
-    width: 15px;
-    height: 20px;
-    overflow: hidden;
-    background-position: center;
-}
+
 
 .chicken-gif {
     position: absolute;
-    transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+    transition: left 0.8s ease-in-out, top 0.8s ease-in-out;
 }
 .container {
     display: flex;
     align-items: flex-end; /* Align items to the bottom */
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     right: 50px; /* Positioning the entire container */
 }
 
@@ -87,9 +127,18 @@ nav a {
     animation: slideUp 0.5s forwards;
     margin-right: 190px; /* Space between consultant and mail button */
 }
-.text-block {
-    display: none;
-    padding-bottom: 200px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px; /* Размер кнопки */
+    height: 30px; /* Размер кнопки */
+    background-image: url('close.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
 }
