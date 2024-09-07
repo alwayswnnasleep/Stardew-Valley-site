@@ -26,7 +26,6 @@ nav a {
     color: white;
     text-decoration: none;
 }
-
 .content {
     padding: 20px;
     text-align: center;
@@ -40,7 +39,10 @@ nav a {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
+@keyframes slideUp {
+    from { bottom: -100px; opacity: 0; }
+    to { bottom: 0; opacity: 1; }
+}
 .button {
     background-image: url('homeButton.png');
     background-size: contain;
@@ -55,4 +57,39 @@ nav a {
 .chicken-gif {
     position: absolute;
     transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+}
+.container {
+    display: flex;
+    align-items: flex-end; /* Align items to the bottom */
+    position: fixed;
+    bottom: 0;
+    right: 50px; /* Positioning the entire container */
+}
+
+.mail-button {
+    position: fixed;
+    bottom: 0px;
+    right: 80px;
+    width: 100px;
+    height: 100px;
+    background-image: url('postMail.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}
+
+.consultant {
+    display: none; /* Change to block or flex if you want to show it */
+    position: relative;
+    animation: slideUp 0.5s forwards;
+    margin-right: 190px; /* Space between consultant and mail button */
+}
+.text-block {
+    display: none;
+    padding-bottom: 200px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }

@@ -9,7 +9,9 @@
 <body>
     <nav>
         <img src="chickenRun.gif" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
-        <a href="#home" onclick="showSection('home', this)">Главная</a>
+        <a href="#home" onclick="showSection('home', this)">
+            <img src="gameLogoButtonHome.png" alt="Главная" style="height: 50px;"/>
+        </a>
         <a href="#characters" onclick="showSection('characters', this)">Персонажи</a>
         <a href="#seasons" onclick="showSection('seasons', this)">Сезоны</a>
         <a href="#history" onclick="showSection('history', this)">История</a>
@@ -31,7 +33,16 @@
         <h2>История</h2>
         <p>Узнайте о развитии Stardew Valley.</p>
     </div>
-
+    <button class="mail-button" onclick="showConsultant()"></button>
+    
+    <div class="container">
+        <div class="consultant" id="consultant" style="display:none;">
+            <img src="consultant.png" alt="Консультант" width="150" height="200">
+        </div>
+    </div>
+    <div class="text-block" id="textBlock" style="display:none; opacity: 0;">
+        <img src="textBlock.png" width = "80" height="100">
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

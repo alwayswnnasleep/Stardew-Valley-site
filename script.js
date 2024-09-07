@@ -29,9 +29,29 @@ function showSection(sectionId, link) {
     // Обновляем последнюю позицию
     lastPositionX = targetX;
 }
+function showConsultant() {
+    const consultant = document.getElementById('consultant');
+    const textBlock = document.getElementById('textBlock');
 
-// Изначально позиционируем курицу
+    if (consultant.style.display === 'block') {
+        // Hide the consultant and text block
+        consultant.style.display = 'none';
+        textBlock.style.display = 'none';
+    } else {
+        // Show the consultant and text block
+        consultant.style.display = 'block';
+        textBlock.style.display = 'block';
+        textBlock.style.opacity = '0'; // Start hidden
+        setTimeout(() => {
+            textBlock.style.opacity = '1'; // Fade in
+        }, 100);
+    }
+}
+
+// Ensure the consultant starts hidden
 window.onload = () => {
     const firstLink = document.querySelector('nav a');
     showSection('home', firstLink);
+    document.getElementById('consultant').style.display = 'none';
+    document.getElementById('textBlock').style.display = 'none';
 };
