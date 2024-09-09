@@ -1,6 +1,7 @@
 body {
     background-image: url("background.png");
     background-size: 1920px 1080px;
+    background-attachment: fixed;
     background-position: center;
     color: white;
     text-align: center;
@@ -34,6 +35,7 @@ nav {
 
 
 nav a {
+    cursor: pointer;
     padding: 20px 30px;
     display: block;
     color: white;
@@ -48,10 +50,16 @@ nav a.home {
     margin-right: 200px; /* Increase spacing specifically for the Home link */
 }
 
-
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.visible {
+    opacity: 1;
+}
 nav a:hover {
     background-color: rgba(76, 175, 80, 0.7); /* Darker shade of green on hover */
-    transform: scale(1.1); /* Increase size on hover */
+    transform: scale(1.2); /* Increase size on hover */
 }
 
 .button img {
@@ -60,12 +68,41 @@ nav a:hover {
 }
 
 .button:hover img {
-    transform: scale(1.1); /* Increase the image size on hover */
+    transform: scale(1.2); /* Increase the image size on hover */
 }
 .content {
     padding: 20px;
     text-align: center;
     display: none;
+}
+#game-description {
+    opacity: 0; /* Скрываем описание игры */
+    visibility: hidden; /* Делаем его невидимым */
+    transition: opacity 0.5s, visibility 0.5s, transform 0.5s; /* Плавный переход */
+    background: rgba(255, 255, 255, 0.9); /* Прозрачный фон для блока */
+    padding: 20px; /* Отступы вокруг текста */
+    max-width: 1190px; /* Максимальная ширина блока */
+    margin: 0 auto; /* Центрирование блока */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для блока */
+    color: #333; /* Цвет текста */
+    transform: translateY(500px); /* Сдвиг вниз для скрытия */
+}
+
+#game-description.visible {
+    opacity: 1; /* Показываем описание игры */
+    visibility: visible; /* Делаем его видимым */
+    transform: translateY(0); /* Возвращаем на место */
+}
+section {
+    height: 100vh; /* Высота каждого раздела */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(240, 240, 240, 0.8); /* Прозрачный фон */
+    border-bottom: 1px solid #a5a2a2;
+    overflow: hidden; /* Скрыть переполнение */
+    position: relative; /* Установить контекст позиционирования */
+    transition: background 0.3s ease; /* Плавный переход фона */
 }
 .active { 
     display: block; 
@@ -96,7 +133,7 @@ nav a:hover {
 
 .chicken-gif {
     position: absolute;
-    transition: left 0.8s ease-in-out, top 0.8s ease-in-out;
+    transition: left 1.5s ease-in-out, top 1.5s ease-in-out; /* Плавный переход */
 }
 .container {
     display: flex;
@@ -126,19 +163,4 @@ nav a:hover {
     position: relative;
     animation: slideUp 0.5s forwards;
     margin-right: 190px; /* Space between consultant and mail button */
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px; /* Размер кнопки */
-    height: 30px; /* Размер кнопки */
-    background-image: url('close.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background-color: transparent;
 }
