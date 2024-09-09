@@ -8,6 +8,7 @@
   
 </head>
 <body>
+
     <nav>
         <a href="#home" onclick="showSection('home', this)" class="button home">
             <img src="logo.png" alt="Главная" width="180%" height="180%" />
@@ -16,10 +17,11 @@
         <a href="#seasons" onclick="showSection('seasons', this)">Сезоны</a>
         <a href="#history" onclick="showSection('history', this)">История</a>
         <a href="#guide" onclick="showSection('guide', this)">Гайд</a>
-        <img src="chickenRun.gif" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
+        <img src="chickenSit2.png" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
     </nav>
 
-    <div id="home" class="content active">
+
+    <div id="home" class="content">
         <h1>Добро пожаловать!</h1>
         <img src="junimoJump.gif" id="junimoJump" width="20%" height="20%">
         <h2>Погрузись в мир Stardew Valley</h2>

@@ -17,8 +17,14 @@ body {
     align-items: center;
     margin-top: 100px; /* Добавлен отступ сверху */
 }
-
+#history{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
 nav {
+    
     display: flex;
     justify-content: center;
     background-color: #4CAF50;
@@ -35,6 +41,7 @@ nav {
 
 
 nav a {
+    
     cursor: pointer;
     padding: 20px 30px;
     display: block;
@@ -46,17 +53,9 @@ nav a {
 }
 
 nav a.home {
-    
     margin-right: 200px; /* Increase spacing specifically for the Home link */
 }
 
-.fade-in {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-.visible {
-    opacity: 1;
-}
 nav a:hover {
     background-color: rgba(76, 175, 80, 0.7); /* Darker shade of green on hover */
     transform: scale(1.2); /* Increase size on hover */
@@ -71,9 +70,11 @@ nav a:hover {
     transform: scale(1.2); /* Increase the image size on hover */
 }
 .content {
+    
     padding: 20px;
     text-align: center;
     display: none;
+    animation: fadeIn 3s forwards;
 }
 #game-description {
     opacity: 0; /* Скрываем описание игры */
@@ -85,7 +86,7 @@ nav a:hover {
     margin: 0 auto; /* Центрирование блока */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для блока */
     color: #333; /* Цвет текста */
-    transform: translateY(500px); /* Сдвиг вниз для скрытия */
+    transform: translateY(300px); /* Сдвиг вниз для скрытия */
 }
 
 #game-description.visible {
@@ -94,7 +95,7 @@ nav a:hover {
     transform: translateY(0); /* Возвращаем на место */
 }
 section {
-    height: 100vh; /* Высота каждого раздела */
+    height: 200vh; /* Высота каждого раздела */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,7 +130,6 @@ section {
     from { bottom: -100px; opacity: 0; }
     to { bottom: 0; opacity: 1; }
 }
-
 
 .chicken-gif {
     position: absolute;

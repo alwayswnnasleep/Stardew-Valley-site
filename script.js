@@ -1,80 +1,106 @@
-let lastPositionX = 0;
+let lastPositionX = 0; // Начальная позиция курицы
+let chickenWay = "right";
+
 function showSection(sectionId, link) {
+    // Получаем все элементы с классом 'content'
     const sections = document.querySelectorAll('.content');
+    // Скрываем все секции
     sections.forEach(section => {
-        section.style.display = 'none'; // Скрываем все секции
+        section.style.display = 'none';
     });
-    document.getElementById(sectionId).style.display = 'block'; // Показываем выбранную
+    // Показываем выбранную секцию по её ID
+    document.getElementById(sectionId).style.display = 'block';
+
     // Перемещение курицы
-    const chickenRun = document.getElementById('chickenRun');
-    const linkRect = link.getBoundingClientRect();
-    const navRect = document.querySelector('nav').getBoundingClientRect();
-    // Вычисляем позицию для перемещения курицы
-    const targetX = linkRect.left + linkRect.width / 2 - chickenRun.width / 2;
-    const targetY = linkRect.bottom + navRect.top - 10; // Позиция под заголовком
+    const chickenRun = document.getElementById('chickenRun'); // Получаем элемент курицы
+    const linkRect = link.getBoundingClientRect(); // Получаем размеры и положение ссылки
+    const navRect = document.querySelector('nav').getBoundingClientRect(); // Получаем размеры и положение навигации
+
+    // Вычисляем целевую позицию для курицы
+    const targetX = linkRect.left + linkRect.width / 2 - chickenRun.width / 2; // Центрируем курицу по горизонтали
+    const targetY = linkRect.bottom + navRect.top - 10; // Устанавливаем курицу под заголовком
+
     // Определяем направление движения курицы
     if (targetX > lastPositionX) {
-        chickenRun.src = 'chickenRun2.gif'; // Если движется вправо
+        chickenRun.src = 'chickenRun2.gif'; // Если движется вправо, меняем источник изображения на правое
+        chickenWay = "right";
     } else {
-        chickenRun.src = 'chickenRun.gif'; // Если движется влево
+        chickenRun.src = 'chickenRun.gif';  // Если движется влево, меняем источник изображения на левое
+        chickenWay = "left";
     }
+
+    // Устанавливаем позиции курицы
     chickenRun.style.left = `${targetX}px`;
     chickenRun.style.top = `${targetY}px`;
-    // Обновляем последнюю позицию
-    lastPositionX = targetX;
-}
-function showConsultant() {
-    const consultant = document.getElementById('consultant');
-    const textBlock = document.getElementById('textBlock');
 
+    // Обновляем последнюю позицию курицы
+    lastPositionX = targetX;
+
+    // Устанавливаем таймер для смены изображения на сидящую курицу
+    setTimeout(() => {
+        chickenRun.src = chickenWay === "left" ? 'chickenSit.png' : 'chickenSit2.png';
+        
+    }, 1500);
+}
+
+// Функция для показа или скрытия консультанта и текстового блока
+function showConsultant() {
+    const consultant = document.getElementById('consultant'); // Получаем элемент консультанта
+    const textBlock = document.getElementById('textBlock'); // Получаем текстовый блок
+
+    // Если консультант уже виден, скрываем его и текст
     if (consultant.style.display === 'block') {
-        // Скрыть консультанта и текстовый блок
         consultant.style.display = 'none';
         textBlock.style.display = 'none';
     } else {
-        // Показать консультанта и текстовый блок
+        // Иначе, показываем консультанта и текстовый блок
         consultant.style.display = 'block';
         textBlock.style.display = 'block';
-        textBlock.style.opacity = '0'; // Начать скрытым
+        textBlock.style.opacity = '0'; // Начинаем с полной прозрачности
         
-        // Использовать setTimeout для плавного появления
+        // Используем setTimeout для плавного появления текстового блока
         setTimeout(() => {
-            textBlock.style.opacity = '1'; // Появление
+            textBlock.style.opacity = '1'; // Устанавливаем непрозрачность для появления
         }, 100);
     }
 }
 
-
-
+// Переменная для хранения последнего положения прокрутки
 let lastScrollTop = 0;
+// Получаем элемент описания игры
 const gameDescription = document.getElementById('game-description');
-const scrollThreshold = 300; // Порог скролла в пикселях
+// Порог прокрутки, при достижении которого будет показано описание
+const scrollThreshold = 390; 
 
+// Добавляем обработчик события прокрутки окна
 window.addEventListener('scroll', () => {
+    // Получаем текущее положение прокрутки
     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentScrollTop > lastScrollTop) {
-        // Прокрутка вниз
+        // Если прокручиваем вниз
         if (currentScrollTop > scrollThreshold) {
-            gameDescription.classList.add('visible');
+            gameDescription.classList.add('visible'); // Добавляем класс видимости
         }
-    } else {
-        // Прокрутка вверх
-        gameDescription.classList.remove('visible');
+    } else if(currentScrollTop<scrollThreshold){
+        // Если прокручиваем вверх
+        gameDescription.classList.remove('visible'); // Убираем класс видимости
     }
 
-    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Для мобильных или очень маленьких экранов
+    // Обновляем последнее положение прокрутки
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Устанавливаем значение для мобильных устройств
 });
-// Ensure the consultant starts hidden
+
+// Функция, которая запускается при загрузке окна
 window.onload = () => {
-    const firstLink = document.querySelector('nav a');
-    showSection('home', firstLink);
-    const textBlock = document.getElementById('textBlock');
-    textBlock.classList.add('fade-in');
+    const firstLink = document.querySelector('nav a'); // Получаем первую ссылку в навигации
+    showSection('home', firstLink); // Показываем домашнюю секцию
+    const textBlock = document.getElementById('textBlock'); // Получаем текстовый блок
+    textBlock.classList.add('fade-in'); // Добавляем класс для анимации появления
     setTimeout(() => {
-        textBlock.classList.add('visible');
+        textBlock.classList.add('visible'); // Через 10 мс добавляем класс видимости
     }, 10);
-    showSection('home', firstLink);
-    document.getElementById('consultant').style.display = 'none';
-    document.getElementById('textBlock').style.display = 'none';
+    showSection('home', firstLink); // Показать секцию снова
+    document.getElementById('consultant').style.display = 'none'; // Убедиться, что консультант скрыт
+    document.getElementById('textBlock').style.display = 'none'; // Убедиться, что текстовый блок скрыт
 };
