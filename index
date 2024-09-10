@@ -17,7 +17,8 @@
         <a href="#seasons" onclick="showSection('seasons', this)">Сезоны</a>
         <a href="#history" onclick="showSection('history', this)">История</a>
         <a href="#guide" onclick="showSection('guide', this)">Гайд</a>
-        <img src="chickenSit2.png" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
+        <img src="chickenRun.png" alt="Chicken Run" class="chicken-gif" id="chickenRun" width="50" height="50">
+        
     </nav>
 
 

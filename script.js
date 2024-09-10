@@ -1,6 +1,15 @@
 let lastPositionX = 0; // Начальная позиция курицы
 let chickenWay = "right";
 
+
+
+window.onload = function() {
+    const chickenRun = document.getElementById('chickenRun');
+    chickenRun.style.position = 'absolute'; // Ensure the chicken is positioned absolutely
+    chickenRun.style.left = '0px'; // Initial left position
+    chickenRun.style.top = '0px'; // Initial top position
+};
+
 function showSection(sectionId, link) {
     // Получаем все элементы с классом 'content'
     const sections = document.querySelectorAll('.content');
@@ -35,12 +44,16 @@ function showSection(sectionId, link) {
 
     // Обновляем последнюю позицию курицы
     lastPositionX = targetX;
-
+    
     // Устанавливаем таймер для смены изображения на сидящую курицу
     setTimeout(() => {
         chickenRun.src = chickenWay === "left" ? 'chickenSit.png' : 'chickenSit2.png';
-        
+        if(sectionId=='home')
+            chickenRun.src = 'chickenSit2.png';
+        if(sectionId=='guide')
+            chickenRun.src = 'chickenSit.png'
     }, 1500);
+    
 }
 
 // Функция для показа или скрытия консультанта и текстового блока

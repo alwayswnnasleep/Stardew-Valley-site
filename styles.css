@@ -24,7 +24,6 @@ body {
     margin-top: 150px;
 }
 nav {
-    
     display: flex;
     justify-content: center;
     background-color: #4CAF50;
@@ -99,11 +98,13 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(240, 240, 240, 0.8); /* Прозрачный фон */
-    border-bottom: 1px solid #a5a2a2;
+    background: rgba(255, 255, 255, 0.633) !important; /* Прозрачный фон */
+    border-bottom: 1px solid #f9e597;
     overflow: hidden; /* Скрыть переполнение */
     position: relative; /* Установить контекст позиционирования */
-    transition: background 0.3s ease; /* Плавный переход фона */
+    border-radius: 15px; /* Скругление углов */
+   
+    transition: background 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
 }
 .active { 
     display: block; 
